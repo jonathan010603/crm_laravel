@@ -26,7 +26,10 @@
                     placeholder="{{ $customer->phone }}" value="{{ $customer->phone }}">
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit changes</button>
+            <x-modal>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Yes</button>
+            </x-modal>
         </form>
     </div>
 
