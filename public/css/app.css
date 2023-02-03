@@ -1,0 +1,23 @@
+body {
+    width: 100vw;
+    height: 94vh;
+}
+
+.error-container {
+    background-color:antiquewhite;
+    transition: all 0.3s ease-in-out;
+}
+
+.error-message, .error-tryagain {
+    font-size: 25px;
+}
+
+.error-tryagain button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.error-tryagain img:hover {
+    width: 55px;
+}

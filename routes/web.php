@@ -21,5 +21,8 @@ Route::get('/', function () {
 Route::resource('/customers', CustomersController::class)
     ->only(['index', 'create', 'store', 'destroy', 'edit']);
 
-Route::put('/customers/edit/{customer}', [CustomersController::class, 'edit'])
+Route::post('/customers/edit/{customer}', [CustomersController::class, 'edit'])
     ->name('customers.edit');
+
+Route::put('/customers/edit/{customer}', [CustomersController::class, 'update'])
+    ->name('customers.update');

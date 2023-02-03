@@ -7,7 +7,7 @@
     <td>
         <form action="{{ route('customers.edit', $customer) }}" method="POST">
             @csrf
-            @method('PUT')
+            @method('POST')
             <button type="submit" class="btn btn-primary btn-sm">Edit</button>
         </form>
 

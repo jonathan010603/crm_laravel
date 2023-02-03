@@ -1,5 +1,5 @@
-<x-customers_container>
-    <x-navbar/>
+<x-main_container>
+    <x-navbar pageTitle=Customers />
 
     <table class="table table-hover">
         <thead>
@@ -19,4 +19,4 @@
             @endforeach
         </tbody>
     </table>
-</x-customers_container>
+</x-main_container>
