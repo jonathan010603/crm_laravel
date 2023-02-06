@@ -26,3 +26,13 @@ Route::post('/customers/edit/{customer}', [CustomersController::class, 'edit'])
 
 Route::put('/customers/edit/{customer}', [CustomersController::class, 'update'])
     ->name('customers.update');
+
+route::get('/email', function () {
+    return new App\Mail\UserUpdated(
+        26,
+        'Jonathan',
+        'da silva',
+        'jonathan@gmail.com',
+        '48999999999'
+    );
+});

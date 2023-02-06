@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CustomerRequest;
+use App\Mail\UserUpdated;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CustomersController extends Controller
 {
@@ -43,6 +45,15 @@ class CustomersController extends Controller
     {
         $customer->fill($request->all());
         $customer->save();
+
+        $email = new UserUpdated(
+            $customer->id,
+            $customer->firstName,
+            $customer->lastName,
+            $customer->email,
+            $customer->phone
+        );
+        Mail::to($customer->email)->send($email);
 
         return to_route('customers.index');
     }
