@@ -24,6 +24,9 @@ Route::resource('/customers', CustomersController::class)
 Route::get('/customers/edit/{customer}', [CustomersController::class, 'edit'])
     ->name('customers.edit');
 
+Route::post('/customers/store', [CustomersController::class, 'store'])
+    ->name('customers.store');
+
 Route::put('/customers/edit/{customer}', [CustomersController::class, 'update'])
     ->name('customers.update');
 

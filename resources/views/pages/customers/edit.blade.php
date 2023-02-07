@@ -7,17 +7,17 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="firstName" class="form-label">First name</label>
-                <input name="firstName" type="text" class="form-control" id="firstName" aria-describedby="emailHelp"
+                <input name="firstName" type="text" class="form-control" id="firstName" aria-describedby="firstName"
                     placeholder="{{ $customer->firstName }}" value="{{ $customer->firstName }}">
             </div>
             <div class="mb-3">
                 <label for="lastName" class="form-label">Last name</label>
-                <input name="lastName" type="text" class="form-control" id="lastName" aria-describedby="emailHelp"
+                <input name="lastName" type="text" class="form-control" id="lastName" aria-describedby="lastName"
                     placeholder="{{ $customer->lastName }}" value="{{ $customer->lastName }}">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                <input name="email" type="email" class="form-control" id="email" aria-describedby="email"
                     placeholder="{{ $customer->email }}" value="{{ $customer->email }}">
             </div>
             <div class="mb-3">

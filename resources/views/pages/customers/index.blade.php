@@ -2,9 +2,9 @@
     <x-navbar pageTitle=Customers />
 
     <div class="container mt-5 d-flex flex-column align-items-center">
-        <button type="button" class="btn btn-primary">
-            New user
-        </button>
+        <a href="{{ route('customers.create') }}">
+            <button type="button" class="btn btn-primary">New user</button>
+        </a>
         <div class="container mt-3">
             <table class="table">
                 <thead>

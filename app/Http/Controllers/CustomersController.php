@@ -27,12 +27,14 @@ class CustomersController extends Controller
 
     public function create()
     {
-
+        return view('pages.customers.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        Customer::create($request->all());
 
+        return to_route('customers.index');
     }
 
     public function edit(Customer $customer)
@@ -41,26 +43,27 @@ class CustomersController extends Controller
             ->with('customer', $customer);
     }
 
-    public function update(Customer $customer, Request $request) 
+    public function update(Customer $customer, Request $request)
     {
         $customer->fill($request->all());
         $customer->save();
 
         $email = new UserUpdated(
-            $customer->id,
-            $customer->firstName,
-            $customer->lastName,
-            $customer->email,
-            $customer->phone
+                $customer->id,
+                $customer->firstName,
+                $customer->lastName,
+                $customer->email,
+                $customer->phone
         );
-        
+
         $when = now()->addSeconds(2);
         Mail::to($customer->email)->later($when, $email);
 
         return to_route('customers.index');
     }
 
-    public function destroy (Customer $customer) {
+    public function destroy(Customer $customer)
+    {
         $customer->delete();
         return to_route('customers.index');
     }
