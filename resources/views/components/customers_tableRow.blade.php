@@ -4,7 +4,7 @@
     <td>{{ $customer->lastName }}</td>
     <td>{{ $customer->email }}</td>
     <td>{{ $customer->phone }}</td>
-    <td class="d-flex">
+    <td class="d-flex justify-content-end">
         <a href="{{ route('customers.edit', $customer) }}">
             <button type="button" class="btn btn-primary btn-sm mx-2">Edit</button>
         </a>
