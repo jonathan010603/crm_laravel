@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\Logincontroller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Authenticator;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login', [Logincontroller::class, 'index'])
+    ->name('login');
+
+Route::post('/login', [Logincontroller::class, 'attempt'])
+    ->name('login.attempt');
+
+Route::get('/login/logout', [Logincontroller::class, 'logout'])
+    ->name('login.logout');
+
 Route::get('/', function () {
     return redirect('/customers');
-});
+})->middleware(Authenticator::class);
 
 Route::resource('/customers', CustomersController::class)
-    ->only(['index', 'create', 'store', 'destroy', 'edit']);
+    ->only(['index', 'create', 'store', 'destroy', 'edit'])
+    ->middleware(Authenticator::class);
 
 Route::get('/customers/edit/{customer}', [CustomersController::class, 'edit'])
     ->name('customers.edit');

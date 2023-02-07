@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CustomerRequest;
 use App\Mail\UserUpdated;
 use App\Models\Customer;
 use Illuminate\Http\Request;
