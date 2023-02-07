@@ -34,16 +34,20 @@ Route::resource('/customers', CustomersController::class)
     ->middleware(Authenticator::class);
 
 Route::get('/customers/edit/{customer}', [CustomersController::class, 'edit'])
-    ->name('customers.edit');
+    ->name('customers.edit')
+    ->middleware(Authenticator::class);
 
 Route::post('/customers/store', [CustomersController::class, 'store'])
-    ->name('customers.store');
+    ->name('customers.store')
+    ->middleware(Authenticator::class);
 
 Route::put('/customers/edit/{customer}', [CustomersController::class, 'update'])
-    ->name('customers.update');
+    ->name('customers.update')
+    ->middleware(Authenticator::class);
 
 Route::delete('/customers/delete/{customer}', [CustomersController::class, 'destroy'])
-    ->name('customers.destroy');
+    ->name('customers.destroy')
+    ->middleware(Authenticator::class);
 
 route::get('/email', function () {
     return new App\Mail\UserUpdated(
