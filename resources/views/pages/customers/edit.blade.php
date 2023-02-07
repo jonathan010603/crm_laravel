@@ -1,7 +1,7 @@
 <x-main_container>
     <x-navbar pageTitle=Customers />
 
-    <div class="container">
+    <div class="container mt-5">
         <form action="{{ route('customers.update', $customer) }}" method="POST">
             @csrf
             @method('PUT')
@@ -26,9 +26,10 @@
                     placeholder="{{ $customer->phone }}" value="{{ $customer->phone }}">
             </div>
 
-            <x-modal>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary">Yes</button>
+            <x-modal message="Update user #{{ $customer->id }} ( {{ $customer->firstName }} {{ $customer->lastName }} )?">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
+                    Submit changes
+                </button>
             </x-modal>
         </form>
     </div>

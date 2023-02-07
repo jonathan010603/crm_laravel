@@ -53,8 +53,15 @@ class CustomersController extends Controller
             $customer->email,
             $customer->phone
         );
-        Mail::to($customer->email)->send($email);
+        
+        $when = now()->addSeconds(2);
+        Mail::to($customer->email)->later($when, $email);
 
+        return to_route('customers.index');
+    }
+
+    public function destroy (Customer $customer) {
+        $customer->delete();
         return to_route('customers.index');
     }
 }

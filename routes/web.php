@@ -21,11 +21,14 @@ Route::get('/', function () {
 Route::resource('/customers', CustomersController::class)
     ->only(['index', 'create', 'store', 'destroy', 'edit']);
 
-Route::post('/customers/edit/{customer}', [CustomersController::class, 'edit'])
+Route::get('/customers/edit/{customer}', [CustomersController::class, 'edit'])
     ->name('customers.edit');
 
 Route::put('/customers/edit/{customer}', [CustomersController::class, 'update'])
     ->name('customers.update');
+
+Route::delete('/customers/delete/{customer}', [CustomersController::class, 'destroy'])
+    ->name('customers.destroy');
 
 route::get('/email', function () {
     return new App\Mail\UserUpdated(

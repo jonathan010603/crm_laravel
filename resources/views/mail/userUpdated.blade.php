@@ -1,9 +1,7 @@
 @component('mail::message')
-    
-# Success!
 
-User #{{ $id }} updated
-<br>
+# User #{{ $id }} updated succesfully
+New user data below:
 <br>
 <br>
 | First name |

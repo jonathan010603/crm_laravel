@@ -26,7 +26,7 @@ class UserUpdated extends Mailable
         public string $phone
     )
     {
-        //
+        $this->subject = "User $this->id updated successfully";
     }
 
     /**
