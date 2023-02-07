@@ -12,10 +12,7 @@
         <form action="{{ route('customers.destroy', $customer) }}" method="POST">
             @csrf
             @method('DELETE')
-            <x-modal>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#Modal">Delete</button>
-            </x-modal>
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
         </form>
     </td>
 </tr>
