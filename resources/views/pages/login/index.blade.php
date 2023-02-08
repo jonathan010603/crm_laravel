@@ -2,7 +2,7 @@
     <div class="container mt-5">
         @if ($errors->any())
             <div class="mb-5 p-3 bg-danger text-light bg-primary-subtle border border-primary-subtle rounded-3">
-                User or password invalid
+                {{ $errors->first() }}
             </div>
         @endif
 
